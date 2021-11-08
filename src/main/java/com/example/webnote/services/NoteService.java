@@ -13,4 +13,8 @@ public interface NoteService {
 
     // Получение по id
     Note getById(Integer id);
+
+    void deleteById(Integer id);
+
+    void deleteAll();
 }
