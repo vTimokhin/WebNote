@@ -33,10 +33,19 @@ public class User {
     @Column(nullable = false, length = 20)
     private String mail;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Status status;
     @OneToMany(mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true,
             fetch = FetchType.EAGER)
     private List<Note> notes;
+
+    public User(String login, String pass, String nickName, String mail, Status status) {
+        this.login = login;
+        this.pass = pass;
+        this.nickName = nickName;
+        this.mail = mail;
+        this.status = status;
+    }
 }
