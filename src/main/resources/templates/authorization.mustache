@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Authorization</title>
+</head>
+<body>
+<!--<div class="form">-->
+<!--    <form method="post" action="./authorization">-->
+<!--        <div><label><input type="text" name="username"></label></div>-->
+<!--        <div><label><input type="password" name="password"></label></div>-->
+<!--        <input type="button" value="Cancel">-->
+<!--        <input type="submit" value="Login">-->
+<!--    </form>-->
+<!--</div>-->
+
+<div class="form">
+    <form method="post" action="./authorization">
+        <div class="title">Welcome</div>
+        <div class="subtitle">Enter your account details.</div>
+        <div class="input-container ic1">
+            <input id="login" class="input" name="username" type="text" placeholder=" "/>
+            <div class="cut"></div>
+            <label for="username" class="placeholder">Логин</label>
+        </div>
+        <div class="input-container ic1">
+            <input id="login" class="input" name="password" type="password" placeholder=" "/>
+            <div class="cut"></div>
+            <label for="password" class="placeholder">Пароль</label>
+        </div>
+        <div id="outer">
+            <input class="button" type="button" value="Cancel"  onclick="window.location.href = 'main';">
+            <input class="button" type="submit" class="submit" value="Login">
+        </div>
+    </form>
+</div>
+</body>
+</html>
