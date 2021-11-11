@@ -1,13 +1,13 @@
 package com.example.webnote.controllers;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+
+//@Controller
 public class AuthorizationController {
     @GetMapping("authorization")
-    public String authorization(Model model){
+    public String authorization(Model model) {
         return "authorization";
     }
 }

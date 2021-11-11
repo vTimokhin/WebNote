@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/toolbar.css">
+    <link rel="stylesheet" href="css/notesStyle.css">
+    <title>Заметки</title>
+</head>
+<body>
+<div id="toolbar">
+    <span class="titleTB"><a href="main">Главная</a></span>
+    <ul>
+        <li><a href="registration">Регистрация</a><span>Регистрация в системе</span></li>
+        <li><a href="authorization">Авторизация</a><span>Вход в систему</span></li>
+        <li><a href="logout">Выход</a><span>Выход из системы</span></li>
+        <li><a href="notes">Заметки</a><span>Ваши заметки</span></li>
+        <li><a href="admin">Администрирование</a><span>Управление учетными записями</span></li>
+    </ul>
+</div>
+<div class="wrapper">
+    <form method="post" action="noteAdd">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <div class="group">
+            <input type="text" required="required" name="header"/>
+            </span><span class="bar"></span>
+            <label>Заголовок заметки:</label>
+        </div>
+        <div class="group">
+            <textarea type="textarea" rows="5" required="required" name="text1"></textarea>
+            <span></span><span class="bar"></span>
+            <label>Текст заметки:</label>
+        </div>
+        <div class="btn-box">
+            <input class="btn btn-submit" type="submit" value="Сохранить">
+            <button class="btn btn-cancel" type="reset">Очистить</button>
+        </div>
+    </form>
+</div>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="first">Дата заметки</th>
+            <th class="first">Заголовок заметки</th>
+            <th class="second">Текст заметки</th>
+        </tr>
+        </thead>
+    <tbody>
+        {{#notes}}
+        <tr>
+            <td>{{date}}</td>
+            <td>{{header}}</td>
+            <td>{{text}}</td>
+        </tr>
+        </tbody>
+        {{/notes}}
+    </table>
+</div>
+</body>
+</html>

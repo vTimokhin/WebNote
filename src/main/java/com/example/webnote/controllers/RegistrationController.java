@@ -9,33 +9,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
+
+import static com.example.webnote.models.User.Role.USER;
+
 @Controller
 public class RegistrationController {
     @Autowired
     private UserService userService;
 
     @GetMapping("registration")
-    public String registration() {
+    public String registration(ModelMap modelMap) {
         return "registration";
     }
 
+    //spring reg
     @PostMapping("register")
-    public String register(@RequestParam String login,
-                           @RequestParam String pass,
-                           @RequestParam String nickName,
-                           @RequestParam String mail,
-                           ModelMap modelMap) {
+    public String register(
+            @RequestParam String login,
+            @RequestParam String pass,
+            @RequestParam String nickName,
+            @RequestParam String mail,
+            ModelMap modelMap) {
         User user = new User(0, login, pass, nickName, mail,
-                User.Status.ACTIVE, null);
-        if (!login.equals("") && !pass.equals("") && !nickName.equals("") && !mail.equals("")) {
-            if (userService.findByLogin(login) == null) {
-                userService.save(user);
-                // return new ModelAndView("redirect:");
-            }
+                User.Status.ACTIVE, Collections.singleton(USER), null);
+        if (userService.findByLogin(login) == null) {
+            user = userService.save(user);
         }
         modelMap.put("user", user);
         //return new ModelAndView("redirect:registration", modelMap);
         return "redirect:main";
     }
 }
-

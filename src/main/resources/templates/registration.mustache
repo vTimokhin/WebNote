@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <title>Registration</title>
+    <link rel="stylesheet" href="css/toolbar.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>Регистрация</title>
 </head>
 <body>
+<div id="toolbar">
+    <span class="titleTB"><a href="main">Главная</a></span>
+    <ul>
+        <li><a href="registration">Регистрация</a><span>Регистрация в системе</span></li>
+        <li><a href="authorization">Авторизация</a><span>Вход в систему</span></li>
+        <li><a href="logout">Выход</a><span>Выход из системы</span></li>
+        <li><a href="notes">Заметки</a><span>Ваши заметки</span></li>
+        <li><a href="admin">Администрирование</a><span>Управление учетными записями</span></li>
+    </ul>
+</div>
 <div class="form">
     <form method="post" action="register">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+
         <div class="title">Welcome</div>
         <div class="subtitle">Let's create your account!</div>
         <div class="input-container ic1">
