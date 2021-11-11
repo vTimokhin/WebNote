@@ -20,6 +20,11 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    public List<Note> findAllByUser_Id(Integer id) {
+        return noteRepository.findAllByUser_Id(id);
+    }
+
+    @Override
     public Note save(Note note) {
         return noteRepository.save(note);
     }

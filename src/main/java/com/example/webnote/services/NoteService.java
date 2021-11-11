@@ -7,6 +7,8 @@ import java.util.List;
 public interface NoteService {
     List<Note> findAll();
 
+    List<Note> findAllByUser_Id(Integer id);
+
     Note save(Note note);
 
     List<Note> saveAll(List<Note> notes);

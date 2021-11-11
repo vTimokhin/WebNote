@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,7 +21,10 @@ public class User {
         BLOCKED,
         DELETED
     }
-
+    public enum Role {
+        ADMIN,
+        USER
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,6 +39,10 @@ public class User {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
     @OneToMany(mappedBy = "user",
 //            cascade = CascadeType.ALL,
 //            orphanRemoval = true,

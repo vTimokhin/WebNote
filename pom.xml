@@ -12,7 +12,7 @@
     <artifactId>WebNote</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>WebNote</name>
+    <name>web-note</name>
     <description>WebNote</description>
     <properties>
         <java.version>1.8</java.version>
@@ -60,6 +60,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!--S-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>2.5.6</version>
         </dependency>
     </dependencies>
 
